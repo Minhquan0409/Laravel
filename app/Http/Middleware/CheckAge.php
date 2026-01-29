@@ -5,10 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Support\Facades\Log;
-use Carbon\Carbon;
 
-class CheckTimeAccess
+class CheckAge
 {
     /**
      * Handle an incoming request.
@@ -17,17 +15,13 @@ class CheckTimeAccess
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $now = now();
-        $start = Carbon::parse('07:00:00');
-        $end = Carbon::parse('17:00:00');
-        if ($now->between($start, $end)) {
-            //return $next($request);
+        $age = session('age');
+        if ($age < 18 || !is_numeric($age)) {
             return response()->json([
-                'time' => $now,
-            ], 200);
+                'message' => 'Access denied. You must be at least 18 years old.',
+                'age' => $age,
+            ], 403);
         }
-        return response()->json([
-            'time' => $now -> format('H:i:s')
-        ], 403);
+        return $next($request);
     }
 }

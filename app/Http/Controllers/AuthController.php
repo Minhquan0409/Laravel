@@ -29,4 +29,11 @@ class AuthController extends Controller
             return "signup failed";
         }
     }
+    public function ageForm() {
+        return view('age');
+    }
+    public function saveAge(Request $request) {
+        session(['age' => $request->input('age')]);
+        return "Đã lưu tuổi của bạn vào session.";
+    }
 }

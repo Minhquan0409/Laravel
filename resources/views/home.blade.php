@@ -30,13 +30,13 @@
             display: inline-block;
             margin: 10px;
             padding: 10px 20px;
-            background: #007bff;
+            background: #3562A6;
             color: white;
             text-decoration: none;
             border-radius: 5px;
         }
         .nav-links a:hover {
-            background: #0056b3;
+            background: #0E1E5B;
         }
     </style>
 </head>

@@ -67,3 +67,16 @@ Route::post('/signin', [AuthController::class, 'checkSignin'])->name('auth.check
 // Route signup
 Route::get('/signup', [AuthController::class, 'signup'])->name('auth.signup');
 Route::post('/signup', [AuthController::class, 'checkSignup'])->name('auth.checkSignup');
+
+//Route age
+Route::prefix('auth')->group(function () {
+    Route::controller(AuthController::class)->group(function () {
+    Route::get('/login', 'login')->name('login');
+    Route::post('/login', 'checkLogin')->name('checkLogin');
+    Route::get('/signin', 'signin')->name('signin');
+    Route::post('/signin', 'checkSignIn')->name('checkSignIn');
+    Route::get('/age', 'ageForm')->name('ageForm');
+    Route::post('/age', 'saveAge')->middleware(CheckAge::class)->name('saveAge');
+    });
+});
+

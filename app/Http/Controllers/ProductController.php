@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controller;                    
+use App\Http\Controllers\Controller;                     
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;       
 use App\Http\Middleware\CheckTimeAccess;
