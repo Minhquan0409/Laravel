@@ -1,12 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .nav-links {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .nav-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
-<body class="container mt-5">
-    <h1>Chào mừng đến với Quản lý sản phẩm</h1>
-    <a href="{{ route('product.index') }}" class="btn btn-primary">Xem danh sách sản phẩm</a>
-    <a href="{{ route('banco') }}" class="btn btn-success">Xem bàn cờ vua 8×8</a>
+<body>
+    <div class="container">
+        <h1>Chào mừng đến với Quản lý sản phẩm</h1>
+        <div class="nav-links">
+            <a href="{{ route('home') }}">Trang chủ</a>
+            <a href="{{ route('auth.signin') }}">Đăng nhập</a>
+            <a href="{{ route('product.index') }}">Xem danh sách sản phẩm</a>
+            <a href="{{ route('sinhvien.info') }}">Sinh viên</a>
+            <a href="{{ route('banco', ['n' => 8]) }}">Xem bàn cờ vua 8×8</a>
+        </div>
+    </div>
 </body>
 </html>
